@@ -1,14 +1,7 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import {
-  Alert,
-  Image,
-  Pressable,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { daftarMobil, formatRupiah } from '../../constants/dataMobil';
@@ -316,7 +309,14 @@ export default function HalamanDetailMobil() {
           </View>
           <Pressable
             onPress={() =>
-              Alert.alert('Pembayaran', 'Fitur pembayaran belum tersedia.')
+              router.push({
+                pathname: '/pembayaran',
+                params: {
+                  id: mobil.id,
+                  sopir: denganSopir ? '1' : '0',
+                  antar: antarLokasi ? '1' : '0',
+                },
+              })
             }
             className="h-[52px] px-6 bg-primary rounded-xl flex-row items-center"
           >

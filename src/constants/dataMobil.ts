@@ -14,6 +14,8 @@ export type Mobil = {
   ulasan: number;
   jarakTempuh: string;
   tenaga: string;
+  plat: string;
+  warna: string;
   deskripsi: string;
 };
 
@@ -34,6 +36,8 @@ export const daftarMobil: Mobil[] = [
     ulasan: 128,
     jarakTempuh: '481 km',
     tenaga: '217 HP',
+    plat: 'B 1204 SKZ',
+    warna: 'Gravity Gold',
     deskripsi: 'Electric SUV • 2024 Signature Edition',
   },
   {
@@ -52,6 +56,8 @@ export const daftarMobil: Mobil[] = [
     ulasan: 96,
     jarakTempuh: '14 km/l',
     tenaga: '177 HP',
+    plat: 'B 1789 RST',
+    warna: 'Ignite Red',
     deskripsi: 'Compact SUV • 2023 RS Turbo',
   },
   {
@@ -70,10 +76,36 @@ export const daftarMobil: Mobil[] = [
     ulasan: 74,
     jarakTempuh: '18 km/l',
     tenaga: '250 HP',
+    plat: 'B 1 ALP',
+    warna: 'Pearl White',
     deskripsi: 'Luxury MPV • 2024 Executive',
   },
 ];
 
 export function formatRupiah(angka: number) {
   return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
+export function formatTanggal(tanggal: Date) {
+  const bulan = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'Mei',
+    'Jun',
+    'Jul',
+    'Agu',
+    'Sep',
+    'Okt',
+    'Nov',
+    'Des',
+  ];
+  return `${tanggal.getDate()} ${bulan[tanggal.getMonth()]} ${tanggal.getFullYear()}`;
+}
+
+export function tambahHari(jumlahHari: number) {
+  const tanggal = new Date();
+  tanggal.setDate(tanggal.getDate() + jumlahHari);
+  return tanggal;
 }

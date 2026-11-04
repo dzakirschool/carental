@@ -12,6 +12,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AkunProvider } from '../context/AkunContext';
+import { PesananProvider } from '../context/PesananContext';
 
 export default function RootLayout() {
   const [fontSiap] = useFonts({
@@ -28,13 +29,15 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <AkunProvider>
-        <StatusBar style="dark" />
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            contentStyle: { backgroundColor: '#F7F9FB' },
-          }}
-        />
+        <PesananProvider>
+          <StatusBar style="dark" />
+          <Stack
+            screenOptions={{
+              headerShown: false,
+              contentStyle: { backgroundColor: '#F7F9FB' },
+            }}
+          />
+        </PesananProvider>
       </AkunProvider>
     </SafeAreaProvider>
   );
