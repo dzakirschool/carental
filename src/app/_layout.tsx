@@ -9,6 +9,7 @@ import {
 } from '@expo-google-fonts/plus-jakarta-sans';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AkunProvider } from '../context/AkunContext';
@@ -31,12 +32,23 @@ export default function RootLayout() {
       <AkunProvider>
         <PesananProvider>
           <StatusBar style="dark" />
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              contentStyle: { backgroundColor: '#F7F9FB' },
-            }}
-          />
+          <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#E6E8EA' }}>
+            <View
+              style={{
+                flex: 1,
+                width: '100%',
+                maxWidth: 480,
+                backgroundColor: '#F7F9FB',
+              }}
+            >
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  contentStyle: { backgroundColor: '#F7F9FB' },
+                }}
+              />
+            </View>
+          </View>
         </PesananProvider>
       </AkunProvider>
     </SafeAreaProvider>

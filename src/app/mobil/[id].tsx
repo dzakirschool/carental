@@ -316,7 +316,7 @@ export default function HalamanDetailMobil() {
                 },
               })
             }
-            className="h-[52px] px-6 bg-primary rounded-xl flex-row items-center"
+            className="h-[52px] px-6 bg-primary rounded-xl flex-row items-center active:opacity-90"
           >
             <Text className="font-jakarta-semibold text-white text-sm">
               Lanjut Sewa

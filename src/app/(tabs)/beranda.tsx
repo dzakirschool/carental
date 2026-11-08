@@ -48,6 +48,8 @@ export default function HalamanBeranda() {
         <View className="flex-row items-center">
           <Pressable
             onPress={() => router.push('/notifikasi')}
+            accessibilityRole="button"
+            accessibilityLabel="Notifikasi"
             className="w-9 h-9 items-center justify-center"
           >
             <MaterialIcons name="notifications-none" size={22} color="#444653" />
@@ -89,10 +91,10 @@ export default function HalamanBeranda() {
               <Pressable
                 key={item}
                 onPress={() => setKategori(item)}
-                className={`px-4 py-1.5 rounded-full ${
+                className={`px-4 py-1.5 rounded-full active:opacity-80 ${
                   aktif
                     ? 'bg-primary'
-                    : 'bg-surface-lowest border border-outline-variant/50'
+                    : 'bg-surface-lowest border border-outline-variant/50 hover:border-primary/40'
                 }`}
               >
                 <Text

@@ -341,7 +341,7 @@ export default function HalamanPenjemputan() {
         <View className="px-5 pt-4">
           <Pressable
             onPress={() => router.push(`/voucher?id=${pesanan.id}`)}
-            className="w-full h-[52px] rounded-xl bg-primary flex-row items-center justify-center"
+            className="w-full h-[52px] rounded-xl bg-primary flex-row items-center justify-center active:opacity-90"
           >
             <MaterialIcons name="confirmation-number" size={19} color="#FFFFFF" />
             <Text className="font-jakarta-semibold text-white text-sm ml-2">
@@ -350,7 +350,7 @@ export default function HalamanPenjemputan() {
           </Pressable>
           <Pressable
             onPress={() => router.replace('/beranda')}
-            className="w-full h-12 rounded-xl bg-surface-low items-center justify-center mt-3"
+            className="w-full h-12 rounded-xl bg-surface-low items-center justify-center mt-3 active:opacity-80"
           >
             <Text className="font-jakarta-medium text-on-surface text-sm">
               Kembali ke Beranda

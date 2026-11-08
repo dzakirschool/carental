@@ -471,7 +471,7 @@ export default function HalamanPembayaran() {
           <Pressable
             onPress={bayar}
             disabled={sedangBayar}
-            className={`h-[52px] px-6 bg-primary rounded-xl flex-row items-center ${
+            className={`h-[52px] px-6 bg-primary rounded-xl flex-row items-center active:opacity-90 ${
               sedangBayar ? 'opacity-70' : ''
             }`}
           >

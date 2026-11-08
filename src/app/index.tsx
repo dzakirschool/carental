@@ -265,7 +265,7 @@ export default function HalamanMasuk() {
           <Pressable
             onPress={lanjut}
             disabled={sedangProses}
-            className={`w-full h-[52px] bg-primary-container rounded-xl flex-row items-center justify-center mt-1 ${
+            className={`w-full h-[52px] bg-primary-container rounded-xl flex-row items-center justify-center mt-1 active:opacity-90 ${
               sedangProses ? 'opacity-70' : ''
             }`}
           >

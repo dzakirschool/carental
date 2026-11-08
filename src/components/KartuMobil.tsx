@@ -13,7 +13,7 @@ export default function KartuMobil({ mobil }: Props) {
   const [favorit, setFavorit] = useState(false);
 
   return (
-    <View className="bg-surface-lowest rounded-2xl p-4 border border-outline-variant/50 mb-4">
+    <View className="bg-surface-lowest rounded-2xl p-4 border border-outline-variant/50 mb-4 hover:border-primary/40 active:border-primary/60">
       <View className="flex-row items-start justify-between">
         <View className="flex-1">
           <Text className="font-jakarta-semibold text-[10px] tracking-widest text-outline uppercase">
@@ -80,7 +80,7 @@ export default function KartuMobil({ mobil }: Props) {
         </View>
         <Pressable
           onPress={() => router.push(`/mobil/${mobil.id}`)}
-          className="h-11 px-5 rounded-lg bg-primary flex-row items-center"
+          className="h-11 px-5 rounded-lg bg-primary flex-row items-center active:opacity-90"
         >
           <Text className="font-jakarta-semibold text-white text-xs">Sewa</Text>
           <MaterialIcons
