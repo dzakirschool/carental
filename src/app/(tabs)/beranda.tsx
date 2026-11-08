@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import Avatar from '../../components/Avatar';
 import KartuMobil from '../../components/KartuMobil';
 import { daftarMobil } from '../../constants/dataMobil';
 
@@ -51,10 +52,9 @@ export default function HalamanBeranda() {
           >
             <MaterialIcons name="notifications-none" size={22} color="#444653" />
           </Pressable>
-          <Image
-            source={require('../../../assets/images/avatar.png')}
-            className="w-8 h-8 rounded-full ml-1"
-          />
+          <View className="ml-1">
+            <Avatar ukuran={32} />
+          </View>
         </View>
       </View>
 

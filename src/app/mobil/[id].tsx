@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import Avatar from '../../components/Avatar';
 import { daftarMobil, formatRupiah } from '../../constants/dataMobil';
 
 type InfoMobilProps = {
@@ -78,10 +79,7 @@ export default function HalamanDetailMobil() {
             Detail Mobil
           </Text>
         </View>
-        <Image
-          source={require('../../../assets/images/avatar.png')}
-          className="w-8 h-8 rounded-full"
-        />
+        <Avatar ukuran={32} />
       </View>
 
       <ScrollView

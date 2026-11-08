@@ -1,8 +1,9 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
-import { Image, Pressable, ScrollView, Text, View } from 'react-native';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import Avatar from '../../components/Avatar';
 import { useAkun } from '../../context/AkunContext';
 import { usePesanan } from '../../context/PesananContext';
 
@@ -32,10 +33,7 @@ export default function HalamanProfil() {
         </View>
 
         <View className="items-center px-5 pt-2">
-          <Image
-            source={require('../../../assets/images/avatar.png')}
-            className="w-24 h-24 rounded-full"
-          />
+          <Avatar ukuran={80} />
           <Text className="font-jakarta-bold text-on-surface text-lg mt-4">
             {pengguna?.nama ?? 'Pengguna'}
           </Text>
