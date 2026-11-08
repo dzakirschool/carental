@@ -28,7 +28,7 @@ Fitur yang sudah jalan:
 |-------|--------|
 | Masuk / Daftar | <img src="screenshots/masuk.png" width="220" /> |
 | Beranda | <img src="screenshots/beranda.jpeg" width="220" /> |
-| Detail Mobil | <img src="screenshots/detail_mobil.jpeg_" width="220" /> |
+| Detail Mobil | <img src="screenshots/detail_mobil.jpeg" width="220" /> |
 | Pembayaran | <img src="screenshots/pembayaran.jpeg" width="220" /> |
 | Konfirmasi Penjemputan | <img src="screenshots/penjemputan.png" width="220" /> |
 | E-Voucher | <img src="screenshots/e-voucher.png" width="220" /> |
