@@ -13,6 +13,7 @@ export type Pesanan = {
   mobilId: string;
   mulai: string;
   selesai: string;
+  selesaiMs: number;
   hari: number;
   denganSopir: boolean;
   antarLokasi: boolean;
@@ -28,6 +29,7 @@ type NilaiPesanan = {
   siap: boolean;
   daftarPesanan: Pesanan[];
   tambahPesanan: (pesanan: PesananBaru) => Promise<Pesanan>;
+  statusPesanan: (pesanan: Pesanan) => string;
 };
 
 const KUNCI_PESANAN = 'carental:pesanan';
@@ -75,8 +77,17 @@ export function PesananProvider({ children }: { children: ReactNode }) {
     return baru;
   };
 
+  const statusPesanan = (pesanan: Pesanan) => {
+    if (pesanan.selesaiMs && Date.now() > pesanan.selesaiMs) {
+      return 'Selesai';
+    }
+    return pesanan.status;
+  };
+
   return (
-    <PesananContext.Provider value={{ siap, daftarPesanan, tambahPesanan }}>
+    <PesananContext.Provider
+      value={{ siap, daftarPesanan, tambahPesanan, statusPesanan }}
+    >
       {children}
     </PesananContext.Provider>
   );

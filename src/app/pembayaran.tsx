@@ -116,6 +116,7 @@ export default function HalamanPembayaran() {
       mobilId: mobil.id,
       mulai: tanggalMulai,
       selesai: tanggalSelesai,
+      selesaiMs: tambahHari(hari).getTime(),
       hari,
       denganSopir,
       antarLokasi,

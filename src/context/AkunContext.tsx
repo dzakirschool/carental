@@ -11,6 +11,7 @@ export type Akun = {
   nama: string;
   email: string;
   sandi: string;
+  telepon?: string;
 };
 
 type NilaiAkun = {
@@ -18,6 +19,7 @@ type NilaiAkun = {
   pengguna: Akun | null;
   masuk: (email: string, sandi: string) => Promise<string | null>;
   daftar: (nama: string, email: string, sandi: string) => Promise<string | null>;
+  perbaruiProfil: (nama: string, telepon: string) => Promise<void>;
   keluar: () => Promise<void>;
 };
 
@@ -87,6 +89,7 @@ export function AkunProvider({ children }: { children: ReactNode }) {
       nama: nama.trim(),
       email: emailRapi,
       sandi,
+      telepon: '',
     };
     const akunBaruSemua = [...semuaAkun, akunBaru];
 
@@ -99,13 +102,34 @@ export function AkunProvider({ children }: { children: ReactNode }) {
     return null;
   };
 
+  const perbaruiProfil = async (nama: string, telepon: string) => {
+    if (!pengguna) {
+      return;
+    }
+
+    const diperbarui: Akun = {
+      ...pengguna,
+      nama: nama.trim(),
+      telepon: telepon.trim(),
+    };
+    const semua = semuaAkun.map((item) =>
+      item.email === pengguna.email ? diperbarui : item
+    );
+
+    setSemuaAkun(semua);
+    setPengguna(diperbarui);
+    await AsyncStorage.setItem(KUNCI_AKUN, JSON.stringify(semua));
+  };
+
   const keluar = async () => {
     setPengguna(null);
     await AsyncStorage.removeItem(KUNCI_SESI);
   };
 
   return (
-    <AkunContext.Provider value={{ siap, pengguna, masuk, daftar, keluar }}>
+    <AkunContext.Provider
+      value={{ siap, pengguna, masuk, daftar, perbaruiProfil, keluar }}
+    >
       {children}
     </AkunContext.Provider>
   );

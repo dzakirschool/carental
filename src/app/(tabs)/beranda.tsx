@@ -1,4 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import {
   Image,
@@ -44,7 +45,10 @@ export default function HalamanBeranda() {
           </Pressable>
         </View>
         <View className="flex-row items-center">
-          <Pressable className="w-9 h-9 items-center justify-center">
+          <Pressable
+            onPress={() => router.push('/notifikasi')}
+            className="w-9 h-9 items-center justify-center"
+          >
             <MaterialIcons name="notifications-none" size={22} color="#444653" />
           </Pressable>
           <Image

@@ -9,7 +9,7 @@ import { usePesanan } from '../../context/PesananContext';
 
 export default function HalamanPesanan() {
   const { pengguna } = useAkun();
-  const { daftarPesanan } = usePesanan();
+  const { daftarPesanan, statusPesanan } = usePesanan();
 
   const pesananSaya = daftarPesanan.filter(
     (item) => item.email === pengguna?.email
@@ -40,11 +40,13 @@ export default function HalamanPesanan() {
         ) : (
           pesananSaya.map((item) => {
             const mobil = daftarMobil.find((m) => m.id === item.mobilId);
+            const status = statusPesanan(item);
+            const selesai = status === 'Selesai';
 
             return (
               <Pressable
                 key={item.id}
-                onPress={() => router.push(`/penjemputan?id=${item.id}`)}
+                onPress={() => router.push(`/voucher?id=${item.id}`)}
                 className="bg-surface-lowest rounded-2xl p-4 border border-outline-variant/40 mb-3"
               >
                 <View className="flex-row">
@@ -68,9 +70,17 @@ export default function HalamanPesanan() {
                       {item.mulai} - {item.selesai}
                     </Text>
                   </View>
-                  <View className="bg-secondary-container rounded-full px-2 py-1 self-start">
-                    <Text className="font-jakarta-semibold text-[9px] text-primary">
-                      {item.status}
+                  <View
+                    className={`rounded-full px-2 py-1 self-start ${
+                      selesai ? 'bg-surface-high' : 'bg-secondary-container'
+                    }`}
+                  >
+                    <Text
+                      className={`font-jakarta-semibold text-[9px] ${
+                        selesai ? 'text-secondary' : 'text-primary'
+                      }`}
+                    >
+                      {status}
                     </Text>
                   </View>
                 </View>
