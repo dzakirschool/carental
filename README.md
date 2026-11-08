@@ -39,8 +39,8 @@ Fitur yang sudah jalan:
 
 ## Cara Menjalankan
 ```bash
-git clone https://github.com/dzakirschool/cartal
-cd cartal
+git clone https://github.com/dzakirschool/carental
+cd carental
 npm install
 npx expo start
 ```
